@@ -4,6 +4,9 @@
 
 This project contains an OpenFOAM simulation of a coaxial stream flowing through a square tube using the k-epsilon turbulence model.
 
+Using: OpenFOAM-13 (see https://openfoam.org)
+Build: 13-cde978a97c93
+
 ## Simulation Setup
 
 ### Geometry and Flow Conditions
