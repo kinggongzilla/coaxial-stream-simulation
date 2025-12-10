@@ -1,0 +1,87 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+  | =========                 |                                                 |
+  | \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+  |  \\    /   O peration     | Version:  v13                                   |
+  |   \\  /    A nd           | Web:      www.OpenFOAM.org                      |
+  |    \\/     M anipulation  |                                                 |
+  \*---------------------------------------------------------------------------*/
+  FoamFile
+  {
+      version     2.0;
+      format      ascii;
+      class       dictionary;
+      object      blockMeshDict;
+  }
+  // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+  scale   1;
+
+  // Square tube dimensions
+  // Cross-section: 0.1m x 0.1m (from -0.05 to 0.05 in x and y)
+  // Length: 1m (from 0 to 1 in z direction)
+
+  vertices
+  (
+      // Bottom face (z = 0, inlet)
+      (-0.05 -0.05  0)    // vertex 0
+      ( 0.05 -0.05  0)    // vertex 1
+      ( 0.05  0.05  0)    // vertex 2
+      (-0.05  0.05  0)    // vertex 3
+
+      // Top face (z = 1, outlet)
+      (-0.05 -0.05  1)    // vertex 4
+      ( 0.05 -0.05  1)    // vertex 5
+      ( 0.05  0.05  1)    // vertex 6
+      (-0.05  0.05  1)    // vertex 7
+  );
+
+  blocks
+  (
+      hex (0 1 2 3 4 5 6 7)           // vertex numbers defining the hexahedral block
+      (40 40 200)                       // number of cells in (x y z) directions
+      simpleGrading (1 1 1)            // cell expansion ratios (1 = uniform)
+  );
+
+  edges
+  (
+      // No curved edges for a simple square tube
+  );
+
+  boundary
+  (
+      inlet
+      {
+          type patch;
+          faces
+          (
+              (0 3 2 1)    // bottom face (z=0)
+          );
+      }
+
+      outlet
+      {
+          type patch;
+          faces
+          (
+              (4 5 6 7)    // top face (z=1)
+          );
+      }
+
+      walls
+      {
+          type wall;
+          faces
+          (
+              (0 1 5 4)    // front face (y = -0.05)
+              (2 3 7 6)    // back face (y = 0.05)
+              (1 2 6 5)    // right face (x = 0.05)
+              (0 4 7 3)    // left face (x = -0.05)
+          );
+      }
+  );
+
+  mergePatchPairs
+  (
+  );
+
+

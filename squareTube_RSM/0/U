@@ -1,0 +1,78 @@
+  /*--------------------------------*- C++ -*----------------------------------*\
+  | =========                 |                                                 |
+  | \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+  |  \\    /   O peration     | Version:  v13                                   |
+  |   \\  /    A nd           | Web:      www.OpenFOAM.org                      |
+  |    \\/     M anipulation  |                                                 |
+  \*---------------------------------------------------------------------------*/
+  FoamFile
+  {
+      version     2.0;
+      format      ascii;
+      class       volVectorField;
+      object      U;
+  }
+  // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+  dimensions      [0 1 -1 0 0 0 0];  // m/s
+
+  internalField   uniform (0 0 1);
+
+  boundaryField
+  {
+      inlet
+      {
+          type            codedFixedValue;
+          value           uniform (0 0 1);
+          name            coJetInlet;
+
+          code
+          #{
+              const vectorField& Cf = patch().Cf();  // Face centers
+              vectorField& field = *this;
+
+              // Co-jet parameters
+              const scalar centerVel = 1.0;    // Center jet velocity (m/s)
+              const scalar annulusVel = 5.0;   // Annular jet velocity (m/s)
+              const scalar innerRadius = 0.02; // Radius of center jet (m)
+
+              // Square tube center
+              const scalar xCenter = 0.00;
+              const scalar yCenter = 0.00;
+
+              forAll(Cf, faceI)
+              {
+                  scalar x = Cf[faceI].x();
+                  scalar y = Cf[faceI].y();
+
+                  // Distance from tube center
+                  scalar r = sqrt(sqr(x - xCenter) + sqr(y - yCenter));
+
+                  // Assign velocity based on radial position
+                  if (r < innerRadius)
+                  {
+                      // Center jet: low velocity
+                      field[faceI] = vector(0, 0, centerVel);
+                  }
+                  else
+                  {
+                      // Annular jet: high velocity
+                      field[faceI] = vector(0, 0, annulusVel);
+                  }
+              }
+          #};
+      }
+
+      outlet
+      {
+          type            zeroGradient;
+      }
+
+      walls
+      {
+          type            noSlip;
+      }
+  }
+
+  // ************************************************************************* //
+
