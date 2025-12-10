@@ -31,30 +31,28 @@ This project contains an OpenFOAM simulation of a coaxial stream flowing through
 
 The simulation produced comprehensive results showing the coaxial flow characteristics. Key visualizations are included below:
 
-<div style="display: flex;">
-  <img src="squareTube/screenshots/Velocity%20inlet.png" alt="Velocity Inlet" width="49%">
-  <img src="squareTube/screenshots/velocity%20slice%20along%20tube.png" alt="Velocity Slice" width="49%">
-</div>
+
 
 ### Velocity Field
-*Left: Inlet velocity profile showing coaxial stream configuration*
-*Right: Velocity magnitude along the tube length*
-
 <div style="display: flex;">
-  <img src="squareTube/screenshots/pressure%20slice%20along%20tube.png" alt="Pressure Slice" width="49%">
-  <img src="squareTube/screenshots/pressure%20line%20chart.png" alt="Pressure Chart" width="49%">
+  <img src="squareTube/screenshots/velocity%20slice%20along%20tube.png" alt="Velocity Slice" width="49%">
 </div>
+*Velocity magnitude along the tube length*
+
+
 
 ### Pressure Distribution
-*Left: Pressure distribution along the tube*
-*Right: Pressure variation along the tube centerline*
+<div style="display: flex;">
+  <img src="squareTube/screenshots/pressure%20slice%20along%20tube.png" alt="Pressure Slice" width="49%">
+</div>
+*Pressure distribution along the tube*
 
+### Turbulence Characteristics
 <div style="display: flex;">
   <img src="squareTube/screenshots/turbulent%20energy%20slice%20along%20tube.png" alt="Turbulent Energy" width="49%">
   <!-- Add another image here if you want a pair -->
 </div>
 
-### Turbulence Characteristics
 *Turbulent kinetic energy (k) distribution*
 
 
