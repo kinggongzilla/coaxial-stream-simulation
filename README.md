@@ -31,40 +31,32 @@ This project contains an OpenFOAM simulation of a coaxial stream flowing through
 
 The simulation produced comprehensive results showing the coaxial flow characteristics. Key visualizations are included below:
 
+<div style="display: flex;">
+  <img src="squareTube/screenshots/Velocity%20inlet.png" alt="Velocity Inlet" width="49%">
+  <img src="squareTube/screenshots/velocity%20slice%20along%20tube.png" alt="Velocity Slice" width="49%">
+</div>
+
 ### Velocity Field
+*Left: Inlet velocity profile showing coaxial stream configuration*
+*Right: Velocity magnitude along the tube length*
 
-![Velocity Inlet](squareTube/screenshots/Velocity%20inlet.png)
-*Inlet velocity profile showing coaxial stream configuration*
-
-![Velocity Slice](squareTube/screenshots/velocity%20slice%20along%20tube.png)
-*Velocity magnitude along the tube length*
-
-![Velocity Cross Sections](squareTube/screenshots/velocity%20cross%20sections%20isotropic.png)
-*Velocity profiles at different cross-sections*
+<div style="display: flex;">
+  <img src="squareTube/screenshots/pressure%20slice%20along%20tube.png" alt="Pressure Slice" width="49%">
+  <img src="squareTube/screenshots/pressure%20line%20chart.png" alt="Pressure Chart" width="49%">
+</div>
 
 ### Pressure Distribution
+*Left: Pressure distribution along the tube*
+*Right: Pressure variation along the tube centerline*
 
-![Pressure Slice](squareTube/screenshots/pressure%20slice%20along%20tube.png)
-*Pressure distribution along the tube*
-
-![Pressure Chart](squareTube/screenshots/pressure%20line%20chart.png)
-*Pressure variation along the tube centerline*
+<div style="display: flex;">
+  <img src="squareTube/screenshots/turbulent%20energy%20slice%20along%20tube.png" alt="Turbulent Energy" width="49%">
+  <!-- Add another image here if you want a pair -->
+</div>
 
 ### Turbulence Characteristics
-
-![Turbulent Energy](squareTube/screenshots/turbulent%20energy%20slice%20along%20tube.png)
 *Turbulent kinetic energy (k) distribution*
 
-![Dissipation](squareTube/screenshots/dissipation%20epsilon%20slice%20along%20tube.png)
-*Turbulent dissipation rate (ε) distribution*
-
-![k Cross Sections](squareTube/screenshots/k%20cross%20sections%20isotropic.png)
-*Turbulent kinetic energy at different cross-sections*
-
-### Flow Development
-
-![Velocities Cross Sections](squareTube/screenshots/velocities%20cross%20sections%20line%20chart.png)
-*Velocity development along the tube*
 
 
 
