@@ -69,5 +69,4 @@ To run or analyze this simulation:
    - `blockMesh` to generate/review the mesh
    - `simpleFoam` to run the steady-state simulation
    - `paraFoam` to visualize results
-   - `foamToVTK` to convert results for external visualization
 
